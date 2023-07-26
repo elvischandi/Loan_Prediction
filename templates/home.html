@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Loan Approval Model</title>
+        <style>
+            body {
+              padding: 70px;
+              border: 3px solid rgb(255, 0, 0);
+              border-radius: 15px;
+              background-image: url("{{ url_for('static', filename='image2.png')}}");
+              background-repeat: no-repeat;
+              background-size: cover;
+              height: 650px;
+            }
+            label {
+              display: inline-block;
+              width: 200px;
+            }
+        input {
+              border-radius: 5px;
+              border-color: rgb(255, 0, 0);
+              width: 190px;
+              height: 30px;
+              font-family:Cursive;
+              font-size:16px;
+            }
+            h1 {
+              font-family:Cursive;
+              font-size:28px; 
+            }
+            h2 {
+              font-family:Cursive;
+              font-size:26px;
+            }
+            h3 {
+              font-family:Cursive;
+              font-size:24px;
+            }
+            form {
+              font-family:Cursive;
+              font-size:16px;
+              font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Loan Approval Model</h1>
+        <h2>This model is created to predict if you qualify to get a certain amount of loan or not.</h2>
+        <h3>Enter Details below to see if you qualify.</h3>
+            <form action="{{ url_for('predict')}}" method="post">
+                <label for="Gender">Gender </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Gender">Male
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Gender">Female
+                </label>
+                <br><br>
+                <label for="Married"> Are you married? </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Married">Yes
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Married">No
+                </label>
+                <br><br>
+                <label for="Dependents"> Number of dependents </label>
+                <select id="Dependents" name="Dependents">
+                    <option disabled selected value> -- Select an option -- </option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3+">3+</option>
+                </select>
+                <br><br>
+                <label for="Education"> Are you graduated? </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Education">Yes
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Education">No
+                </label>
+                <br><br>
+                <label for="Self_Employed"> Are you self-employed? </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Self_Employed">Yes
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="Self_Employed">No
+                </label>
+                <br><br>
+                <label for="Applicant_Income">Applicant Income</label>
+                <input type="text" name="Applicant_Income" required="required" />
+                <br><br>
+                <label for="Coapplicant_Income">Co-Applicant Income</label>
+                <input type="text" name="Coapplicant_Income" required="required" />
+                <br><br>
+                <label for="Total_Income">Total Income</label>
+                <input type="text" name="Total_Income" required="required" />
+                <br><br>
+                <label for="Loan_Amount">Loan Amount</label>
+                <input type="text" name="Loan_Amount" required="required" />
+                <br><br>
+                <label for="Loan_Amount_Term">Loan Amount Term</label>
+                <input type="text" name="Loan_Amount_Term" placeholder="Term in days" required="required" />
+                <br><br>
+                <label for="Credit_History">Credit History</label>
+                <select id="Credit_History" name="Credit_History">
+                    <option disabled selected value> -- Select an option -- </option>
+                    <option value="All debts paid">All debts paid</option>
+                    <option value="Not paid">Not paid</option>
+                </select>
+                <br><br>
+                <label for="Property_Area">Property Area</label>
+                <select id="Property_Area" name="Property_Area">
+                    <option disabled selected value> -- Select an option -- </option>
+                    <option value="Rural">Rural</option>
+                    <option value="Semiurban">Semiurban</option>
+                    <option value="Urban">Urban</option>
+                </select>
+                <br><br>
+                <p style="text-align:center;"><input type="submit", value = "Submit" style="height:30px; width:70px"></p>
+        </form>
+    </body>    
+</html>
